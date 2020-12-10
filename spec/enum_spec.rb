@@ -16,7 +16,7 @@ describe Enumerable do
     context "given an array" do
       it "print out even-indexed element returns an empty array" do
         actual = ['Sharon','Leo','Leila','Brian','Arun'].my_each_with_index { |friend, index| friend if index.even? }
-        expected = ['Sharon', 'Leila', 'Arun']
+        expected = ['Sharon','Leo','Leila','Brian','Arun'].each_with_index { |friend, index| friend if index.even? }
         expect(actual).to eql(expected)
       end
     end
@@ -127,49 +127,57 @@ describe Enumerable do
     end
   end
 
-  
+
+  describe "my_count" do
+    context "\ngiven an array\n" do
+      it "returns the number of items satisfying the condition stated as an argument" do
+        expect([1, 2, 4, 2].my_count(2)).to eql(2)
+      end
+      it "returns " do
+        expect([1, 2, 4, 2].my_count).to eql(4)
+      end
+      it "whatever" do
+        expect([1, 2, 4, 2].my_count{ |n| (n % 2).zero? }).to eql(3)
+      end
+    end
+  end
+
+describe "my_map" do
+  context "" do
+    it "dd" do
+      expect(['medium Big Mac', 'medium fries', 'medium milkshake'].my_map{ |item| item.gsub('medium', 'extra large')}).to eql(['medium Big Mac', 'medium fries', 'medium milkshake'].map{  |item| item.gsub('medium', 'extra large')})
+    end
+    it "dd" do
+      expect((0..5).my_map{ |i| i * i }).to eql((0..5).my_map { |i| i * i })
+    end
+  end
+  context "my_map_proc" do
+    it " " do
+      my_proc = proc { |i| i * i }
+      expect((1..5).my_map(&my_proc)).to eql((1..5).map(&my_proc))
+    end
+  end
 end
 
 
+describe do 
+  context " " do
+    it " " do
+      expect((1..5).my_inject {|sum, n| sum + n }).to eql(15)
+    end
+    it " " do
+      expect((1..5).my_inject(1) {|product, n| product * n }).to eql(120)
+    end
+    it " " do
+      expect([2, 3].my_inject(20, :*)).to eql(120)
+    end
+    it " " do
+      expect([2, 3, 4].my_inject(:+)).to eql(9)
+    end
+    it " " do
+      expect(["ant", "bear", "cat"].my_inject {|memo, word|  memo.length > word.length ? memo : word}).to eql("bear")
+    end
+  end
+end
 
-
-# puts '6.--------my_none--------'
-# puts(%w[ant bear cat].my_none? { |word| word.length == 5 }) #=> true
-# puts(%w[ant bear cat].my_none? { |word| word.length >= 4 }) #=> false
-# puts %w[ant bear cat].my_none?(/d/) #=> true
-# puts [1, 3.14, 42].my_none?(Float) #=> false
-# puts [].my_none? #=> true
-# puts [nil].my_none? #=> true
-# puts [nil, false].my_none? #=> true
-# puts [nil, false, true].my_none? #=> false
-# puts %w[e dd].my_none?(/d/) # false
-# puts [1, 2, 3].my_none?(3) # false
-# puts  ["car","cat","dog"].my_none?("cat") #false
-# puts [1,2,2].my_none?(3) #true
-
-# puts '7.--------my_count--------'
-# arr = [1, 2, 4, 2]
-# puts arr.my_count #=> 4
-# puts arr.my_count(2) #=> 2
-# puts(arr.my_count { |x| (x % 2).zero? }) #=> 3
-
-# puts '8.--------my_maps--------'
-# my_order = ['medium Big Mac', 'medium fries', 'medium milkshake']
-# puts(my_order.my_map { |item| item.gsub('medium', 'extra large') })
-# puts((0..5).my_map { |i| i * i })
-# puts 'my_map_proc'
-# my_proc = proc { |i| i * i }
-# puts (1..5).my_map(&my_proc)
-
-# puts '8.--------my_inject--------'
-# puts((1..5).my_inject { |sum, n| sum + n }) #=> 15
-# puts(1..5).my_inject(1) { |product, n| product * n } #=> 120
-# puts [2, 3].my_inject(20, :*) # should return 120
-# puts [2, 3, 4].my_inject(:+) # should return 9
-# longest = %w[ant bear cat].my_inject do |memo, word|
-#   memo.length > word.length ? memo : word
-# end
-# puts longest #=> "bear"
-
-# puts 'multiply_els'
-# puts multiply_els([2, 4, 5]) #=> 40
+end
