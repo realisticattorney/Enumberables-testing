@@ -14,7 +14,7 @@ describe Enumerable do
   
   describe "#my_each_with_index" do
     context "given an array" do
-      it "print out even-indexed element" do
+      it "prints out even-indexed elements" do
         actual = ['Sharon','Leo','Leila','Brian','Arun'].my_each_with_index { |friend, index| friend if index.even? }
         expected = ['Sharon','Leo','Leila','Brian','Arun'].each_with_index { |friend, index| friend if index.even? }
         expect(actual).to eql(expected)
@@ -22,7 +22,7 @@ describe Enumerable do
     end
   end
   describe "#my_select" do
-    context "select out friends who meet the condition" do
+    context "selects out friends who meet the condition" do
       it "prints elements that meet the condition" do
         expect(%w[Sharon Leo Leila Brian Arun].my_select { |friend| friend != 'Brian' }).to eql(["Sharon", "Leo", "Leila", "Arun"])
       end
