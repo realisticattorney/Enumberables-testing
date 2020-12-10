@@ -126,20 +126,7 @@ describe Enumerable do
       
     end
   end
-  # describe "#my_count" do
-  #   context "print out friends" do
-  #     it "returns an empty array" do
-  #       expect(['Sharon','Leo','Leila','Brian','Arun'].my_each { |friend| puts friend }).to eql(["Sharon", "Leo", "Leila", "Brian", "Arun"])
-  #     end
-  #   end
-  # end
-  # describe "#my_each" do
-  #   context "print out friends" do
-  #     it "returns an empty array" do
-  #       expect(['Sharon','Leo','Leila','Brian','Arun'].my_each { |friend| puts friend }).to eql(["Sharon", "Leo", "Leila", "Brian", "Arun"])
-  #     end
-  #   end
-  # end
+
   
 end
 
