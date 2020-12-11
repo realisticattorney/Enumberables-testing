@@ -20,7 +20,7 @@ In this project, we've tested our versions of the following enumerable methods:
 ## Getting Started
 
 - `open CMD`
-- `git clone https://github.com/AbdelrhmanAmin/Enumberables-testing` 
+- `Git clone https://github.com/AbdelrhmanAmin/Enumberables-testing` 
 - `Make sure Ruby is installed on your computer`
 - `In your terminal, type: gem install rspec`
 - `In terminal type: rspec spec ./spec/enum_spec.rb`
