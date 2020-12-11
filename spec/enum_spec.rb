@@ -1,4 +1,3 @@
-# rubocop: disable Metrics/BlockLength
 require_relative '../lib/enum'
 
 describe Enumerable do
@@ -179,4 +178,3 @@ describe Enumerable do
     end
   end
 end
-# rubocop: enable Metrics/BlockLength, Metrics/LineLength
