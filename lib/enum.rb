@@ -11,15 +11,15 @@ module Enumerable
     end
     self
   end
+
   def my_each_with_index
-    return my_each_with_index{|obj| obj} unless block_given?
-     x = []
+    return my_each_with_index { |obj| obj } unless block_given?
+
     arr = to_a
     (0..(arr.length - 1)).each do |i|
-     x << yield(arr[i], i)
+      yield(arr[i], i)
     end
-    x = x.select {|x| !x.nil? }
-    return x
+    self
   end
 
   def my_select
