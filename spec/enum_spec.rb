@@ -3,7 +3,7 @@ require_relative '../lib/enum'
 
 describe Enumerable do
   describe " \n #my_each \n" do
-  let(:arr) {%w[Sharon Leo Leila Brian Arun]}
+    let(:arr) { %w[Sharon Leo Leila Brian Arun] }
     context "given an array \n" do
       it 'prints each element in the array' do
         actual = arr.my_each { |friend| puts friend }
@@ -14,7 +14,7 @@ describe Enumerable do
   end
 
   describe '#my_each_with_index' do
-    let(:arr) {%w[Sharon Leo Leila Brian Arun]}
+    let(:arr) { %w[Sharon Leo Leila Brian Arun] }
     context 'given an array' do
       it 'prints out even-indexed elements' do
         actual = arr.my_each_with_index do |friend, index|
@@ -26,7 +26,7 @@ describe Enumerable do
     end
   end
   describe '#my_select' do
-  let(:arr) {%w[Sharon Leo Leila Brian Arun]}
+    let(:arr) { %w[Sharon Leo Leila Brian Arun] }
     context 'selects out friends who meet the condition' do
       it 'prints elements that meet the condition' do
         expect(arr.my_select { |friend| friend != 'Brian' }).to eql(%w[Sharon Leo Leila Arun])
@@ -35,7 +35,7 @@ describe Enumerable do
   end
 
   describe '#my_all' do
-  let(:arr) {%w[ant bear cat]}
+    let(:arr) { %w[ant bear cat] }
     context 'print out true or false depending if all elements meet the condition' do
       it 'returns true if all elements length is bigger or equal to 3' do
         expect(arr.my_all? { |word| word.length >= 3 }).to eql(true)
@@ -61,7 +61,7 @@ describe Enumerable do
     end
   end
   describe '#my_any' do
-    let(:arr) {%w[ant bear cat]}
+    let(:arr) { %w[ant bear cat] }
     context 'print out true or false if any element meet the given condition' do
       it 'returns true if any element length is equal to or bigger than 3' do
         expect(arr.my_any? { |word| word.length >= 3 }).to eql(true)
@@ -93,7 +93,7 @@ describe Enumerable do
     end
   end
   describe '#my_none' do
-    let(:arr) {%w[ant bear cat]}
+    let(:arr) { %w[ant bear cat] }
     context 'print out true or false if none or some of the elements meet the condition' do
       it 'return true if none of the elements length equals 5' do
         expect(arr.my_none? { |word| word.length == 5 }).to eql(true)
@@ -135,7 +135,7 @@ describe Enumerable do
   end
 
   describe 'my_count' do
-    let(:num) {[1, 2, 4, 2]}
+    let(:num) { [1, 2, 4, 2] }
     context "\ngiven an array, Count how many elements in the array that meets the condition\n" do
       it 'returns the count of numbers that meets condition' do
         expect(num.my_count(2)).to eql(2)
@@ -167,7 +167,7 @@ describe Enumerable do
   end
 
   describe '#my_inject' do
-    let(:arr) {%w[ant bear cat]}
+    let(:arr) { %w[ant bear cat] }
     context 'given different symbols and blocks, return the sum of the array' do
       it 'return the added sum value of the range' do
         expect((1..5).my_inject { |sum, n| sum + n }).to eql(15)
@@ -187,10 +187,10 @@ describe Enumerable do
     end
   end
 
-  describe "#Multiply_els" do
-    context "Utilizing my inject method to get the multiplied sum of an array of numbers" do
-      it "It should return multiplied sum of an array of numbers" do
-         expect(multiply_els([2, 4, 5])).to eql(40)
+  describe '#Multiply_els' do
+    context 'Utilizing my inject method to get the multiplied sum of an array of numbers' do
+      it 'It should return multiplied sum of an array of numbers' do
+        expect(multiply_els([2, 4, 5])).to eql(40)
       end
     end
   end
